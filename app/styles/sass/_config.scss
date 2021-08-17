@@ -141,19 +141,20 @@ input, textarea {
     }
 }
 
+
 // Z-AXIS POSITION CLASSES FOR CARD, TEXT.
-.z__position-2 {
+.z-position-2 {
     transform: translateZ(-70px);
 }
 
-.z__position-1 {
+.z-position-1 {
     transform: translateZ(-35px);
 }
 
-.z__position1 {
+.z-position1 {
     transform: translateZ(20px);
 }
 
-.z__position2 {
+.z-position2 {
     transform: translateZ(40px);
 }

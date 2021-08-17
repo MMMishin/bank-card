@@ -1,2 +1,342 @@
 @import '_config.scss';
 @import 'blocks/**/*';
+
+html, body {
+    height: 100%;
+}
+
+.header {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url(../images/dist/russia.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: 0.02;
+        z-index: -1;
+    }
+}
+
+.top-line {
+    position: absolute;
+    width: 100%;
+    @include fluid(height, 70px, 100px);
+    @include fluid(margin-top, 15px, 25px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo {
+        @include fluid(font-size, 24px, 28px);
+        font-weight: 700;
+        white-space: nowrap;
+        @include fluid(margin-left, 30px, 60px);
+        &--mod {
+            font-weight: 300;
+            transition: all .25s ease-out;
+            margin-left: 0;
+        }
+        &:hover, &:focus {
+            .top-line__logo--mod {
+                color: $accent;
+                text-shadow: 1.5px 1.5px 5px darken($accent, 10);
+            }
+        }
+    }
+    &__button {
+        z-index: 3;
+        background-color: $accent;
+        border-radius: 50px;
+        @include fluid(font-size, 14px, 16px);
+        @include fluid(padding-top, 8px, 12px);
+        @include fluid(padding-bottom, 8px, 12px);
+        @include fluid(padding-right, 20px, 30px);
+        @include fluid(padding-left, 20px, 30px);
+        font-weight: 400;
+        transition: all .25s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fluid(margin-right, 30px, 60px);
+        &:hover, &:focus {
+            background-color: darken($accent, 10);
+            box-shadow: 0px 0px 20px darken($accent, 10);
+        }
+    }
+}
+
+.content-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include fluid(padding-top, 85px, 125px);
+}
+
+.content {
+    @include container;
+    transform-style: preserve-3d;
+    &__container {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__leftblock {
+        width: 50%;
+    }
+    &__title {
+        @include fluid(font-size, 30px, 36px);
+        @include fluid(line-height, 40px, 52px);
+        &-card {
+            color: $accent;
+            white-space: nowrap;
+        }
+        &-neo {
+            font-weight: 300;
+            color: #fff;
+        }
+    }
+    &__text {
+        @include fluid(font-size, 16px, 18px);
+        @include fluid(margin-top, 20px, 30px);
+        width: 90%;
+    }
+    &__link {
+        display: inline-block;
+        @include fluid(margin-top, 20px, 30px);
+        color: $accent;
+        font-weight: 700;
+        @include fluid(font-size, 20px, 22px);
+        transition: .25s ease-out;
+        &-icon {
+            display: inline-block;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 26px;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            background-color: $accent;
+            text-align: center;
+            border-radius: 100%;
+            line-height: 32px;
+            @include fluid(margin-right, 10px, 15px);
+            transition: .25s ease-out;
+        }
+        &:hover, &:focus {
+            color: $accent;
+            .content__link-icon {
+                background-color: darken($accent, 10);
+                box-shadow: 0px 0px 20px darken($accent, 10);
+            }
+        }
+    }
+    &__rightblock {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.card {
+    position: relative;
+    width: 458px;
+    height: 288px;
+    display: inline-block;
+    zoom: .9;
+    &__main-img {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        z-index: 10;
+    }
+    &__second-img {
+        position: absolute;
+        opacity: 0;
+        z-index: 8;
+        left: -50px;
+        top: 30px;
+    }
+    &__third-img {
+        position: absolute;
+        opacity: 0;
+        z-index: 6;
+        left: -100px;
+        top: 60px;
+    }
+    &__logo {
+        position: absolute;
+        opacity: 0;
+        z-index: 12;
+        top: 45px;
+        right: 45px;
+        width: 120px;
+    }
+    &__chip {
+        position: absolute;
+        opacity: 0;
+        z-index: 12;
+        top: 80px;
+        left: 45px;
+    }
+    &__number-holder {
+        position: absolute;
+        opacity: 0;
+        z-index: 12;
+        left: 45px;
+        top: 158px;
+        transition: all 1s ease-out;
+        zoom: 3.5;
+    }
+    &__valid {
+        position: absolute;
+        opacity: 0;
+        z-index: 12;
+        top: 194px;
+        right: 211px;
+        transition: all 1s ease-out;
+        zoom: 3;
+    }
+    &__russia {
+        position: absolute;
+        opacity: 0;
+        z-index: 11;
+        top: 20px;
+        left: 22px;
+        width: 420px;
+    }
+}
+
+.card-img {
+    display: none;
+}
+
+@media screen and (max-width:992px) {
+    .header {
+        &::before {
+            display: none;
+        }
+    }
+
+    .top-line {
+        margin-top: 0;
+    }
+
+    .content-wrapper {
+        padding-top: 70px;
+    }
+
+    .content {
+        transform-style: flat;
+        transform: rotate(0) !important;
+        &__container {
+            flex-direction: column;
+        }
+        &__leftblock {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        &__rightblock {
+            width: 100%;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        &__title {
+            text-align: center;
+            margin-left: 0;
+        }
+        &__text {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 10px;
+            text-align: center;
+        }
+        &__link {
+            margin-left: 0;
+            margin-top: 5px;
+        }
+    }
+
+    .card {
+        display: none;
+    }
+
+    .card-img {
+        display: block;
+        background-image: url(../images/dist/card.png);
+        background-size: cover;
+        width: 480px;
+        height: 308px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .content {
+        &__title {
+            font-size: 22px;
+            line-height: 24px;
+        }
+        &__link {
+            font-size: 18px;
+        }
+    }
+
+    .card-img {
+        width: 385px;
+        height: 245px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .top-line {
+        position: static;
+        height: 15%;
+        &__logo {
+            margin-left: 15px;
+            &--mod {
+                margin-left: 0;
+            }
+        }
+        &__button {
+            margin-right: 15px;
+        }
+    }
+
+    .content-wrapper {
+        padding-top: 0;
+        height: 85%;
+    }
+    
+    .content {
+        padding-left: 0;
+        padding-right: 0;
+        &__text {
+            font-size: 14px;
+            line-height: 18px;
+        }
+        &__link {
+            font-size: 16px;
+        }
+    }
+    
+    .card-img {
+        width: 100%;
+        height: auto;
+        padding-top: 64.30062630480167%;
+    }
+}

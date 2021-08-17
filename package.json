@@ -35,5 +35,8 @@
 		"gulp-stylus": "^2.7.0",
 		"sass": "^1.35.1",
 		"webpack-stream": "^6.1.2"
+	},
+	"dependencies": {
+		"gsap": "^3.7.1"
 	}
 }
